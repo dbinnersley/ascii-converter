@@ -14,7 +14,7 @@ var charsetFixture = "*+-0"
 var catImage image.Image
 var gnomeImage image.Image
 var marblesImage image.Image
-var circlesImage image.Image
+var homerImage image.Image
 
 func rGBImageFixture() *image.RGBA {
 	rGBImage := image.NewRGBA(image.Rect(0, 0, 2, 2))
@@ -60,9 +60,9 @@ func TestMain(m *testing.M) {
 	defer openFile.Close()
 	marblesImage, _, _ = image.Decode(openFile)
 
-	openFile, _ = os.Open("test/circles.gif")
+	openFile, _ = os.Open("test/homer.gif")
 	defer openFile.Close()
-	circlesImage, _, _ = image.Decode(openFile)
+	homerImage, _, _ = image.Decode(openFile)
 
 	os.Exit(m.Run())
 }
@@ -169,7 +169,7 @@ func BenchmarkTifToASCII(b *testing.B) {
 	ImageToASCII(marblesImage, 100, "@%#*+=-:. ")
 }
 func BenchmarkGifToASCII(b *testing.B) {
-	ImageToASCII(circlesImage, 100, "@%#*+=-:. ")
+	ImageToASCII(homerImage, 100, "@%#*+=-:. ")
 }
 func BenchmarkPngToASCII(b *testing.B) {
 	ImageToASCII(gnomeImage, 100, "@%#*+=-:. ")
