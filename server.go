@@ -47,7 +47,7 @@ func logRequest(next http.HandlerFunc) http.HandlerFunc {
 		next(w, r)
 		duration := time.Since(start)
 		durationString := fmt.Sprintf("%0.3f", duration.Seconds())
-		log.Println(r.Method + " request received from " + r.RemoteAddr + ", took " + durationString + " seconds")
+		log.Println(r.RequestURI + " " + r.Method + " request received from " + r.RemoteAddr + ", took " + durationString + " seconds")
 	})
 }
 
