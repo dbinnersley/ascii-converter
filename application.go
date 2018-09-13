@@ -5,7 +5,7 @@ import (
 	"io"
 )
 
-//Application The actual application to be run
+//Application The implementation of the actual application to be run
 type Application struct {
 	config *ApplicationConfig
 }
@@ -23,6 +23,7 @@ func (app *Application) ProcessData(reader io.Reader) ([]string, error) {
 	if err != nil {
 		return []string{}, err
 	}
+
 	asciiArt := ImageToASCII(image, app.config.OutputWidth, app.config.CharSet)
 	lines := asciiArt.CreateLines()
 	return lines, nil
