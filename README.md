@@ -39,11 +39,11 @@ You can modify the size of the artwork, and the symbols in the art by changing t
 #### Error Cases
 Although the project does what it is supposed to and has tests surrounding the critical logic components, it is not without flaws. One of the areas that could be improved upon is input validation. Currently, there is middlewhere implemented that validates that the form data uploaded contains the correct key, but there is no validation done on the actual imagery. The errors are still caught if the data contains bad imagery, but they are returned in a 500 response instead of a 400. This is because the error is caught outside of the validation step. In order to be caught within validation, the image would have to be decoded once in validation, then once more in the processing, and this would result in a large performance decrease. 
 
-There hasn't been any testing done on extremely large image, so there is no insight on if there are cases like this that are not handled.
+There hasn't been any testing done on extremely large images, so there is no insight on if there are cases like this that are not handled.
 
 #### Notes on dependencies
 
-There were only two dependencies that were you used for this project and one of them is part of the go project, but outside of the standed libary. These two dependencies are:
+There were only two dependencies that were used for this project and one of them is part of the go project, but outside of the standed libary. These two dependencies are:
 
 ```
 golang.org/x/image/tiff
