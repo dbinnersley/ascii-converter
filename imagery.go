@@ -24,7 +24,7 @@ func (art *ASCIIArt) CreateLines() []string {
 	output := make([]string, art.Height)
 	for row := 0; row < art.Height; row++ {
 		currentvalues := art.Values[row*art.Width : (row+1)*art.Width]
-		stringrow := strings.Join(currentvalues, " ")
+		stringrow := strings.Join(currentvalues, "")
 		output[row] = stringrow
 	}
 	return output
@@ -59,7 +59,7 @@ func ResizeGray(input *image.Gray, width int) *image.Gray {
 	bounds := input.Bounds()
 	xsize := bounds.Dx()
 	ysize := bounds.Dy()
-	proportion := float32(newWidth) / float32(xsize)
+	proportion := float32(newWidth) / float32(xsize) / 2.0
 	newHeight := uint(float32(ysize) * proportion)
 
 	resizedGray := resize.Resize(newWidth, newHeight, input, resize.Bilinear)

@@ -3,7 +3,7 @@
         "port": 8080
     },
     "application":{
-        "output_width": 60,
+        "output_width": 100,
         "char_set": "@%#*+=-:. "
     }
 }
