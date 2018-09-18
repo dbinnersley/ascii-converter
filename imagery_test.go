@@ -74,7 +74,7 @@ func TestCreateLines(t *testing.T) {
 		Height: 2,
 	}
 	output := art.CreateLines()
-	truth := []string{"A B", "B A"}
+	truth := []string{"AB", "BA"}
 
 	for i := 0; i < 2; i++ {
 		if output[i] != truth[i] {
